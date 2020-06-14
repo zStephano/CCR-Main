@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Gameficação',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Gameficação'),
+        ),
+        body: GamingItens(),
+      ),
+    );
+  }
+}
+
+class GetGamingItens {
+  Widget _buildSuggestions() {
+    return ListView.builder(
+
+    );
+  }
+  // #enddocregion _buildSuggestions
+
+  // #docregion _buildRow
+  Widget _buildRow(WordPair pair) {
+    return ListTile(
+      title: Text(
+        pair.asPascalCase,
+        style: _biggerFont,
+      ),
+    );
+  }
+  // #enddocregion _buildRow
+
+  // #docregion RWS-build
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Startup Name Generator'),
+      ),
+      body: _buildSuggestions(),
+    );
+  }
+  // #enddocregion RWS-build
+  // #docregion RWS-var
+}
+// #enddocregion RWS-var
+
+
+class GamingItens extends StatefulWidget {
+  @override
+  GetGamingItens createState() => RandomWordsState();
+}
