@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:ccr_hack/nav_drawer.dart';
+import 'package:ccr_hack/alert_page.dart';
 
 class MapPage extends StatefulWidget {
   @override
@@ -19,6 +21,7 @@ void _onMapCreated(GoogleMapController controller){
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
         title: Text("Maps"),
         ),
@@ -36,6 +39,16 @@ void _onMapCreated(GoogleMapController controller){
             ),
             markers: markers,
           ),
+          floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, new MaterialPageRoute(
+              builder: (context) =>
+            new AlertPage())
+        ); 
+        },
+        child: Icon(Icons.info),
+      ),
+
     );
   }
 }
